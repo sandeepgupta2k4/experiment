@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  main:
+    image: sandeepgupta2k4/main:latest
+    depends_on:
+      container1:
+        condition: service_healthy
+  container1:
+    image: sandeepgupta2k4/container1:latest
+    healthcheck:
+      test: "test -f /dummyfile.txt"
